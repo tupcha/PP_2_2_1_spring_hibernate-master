@@ -1,5 +1,9 @@
 package hiber.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.*;
 
 @Entity
@@ -25,11 +29,12 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, Car car) {
+    @Autowired
+    public User(Car car, String firstName, String lastName, String email) {
+        this.car = car;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.car = car;
     }
 
     @Override
@@ -40,6 +45,14 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Car getCar() {
@@ -69,7 +82,6 @@ public class User {
     public String getLastName() {
         return lastName;
     }
-
 
 
     public String getEmail() {

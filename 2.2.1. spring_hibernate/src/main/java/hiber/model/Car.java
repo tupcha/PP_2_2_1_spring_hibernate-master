@@ -1,5 +1,8 @@
 package hiber.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+
 import javax.persistence.*;
 
 @Entity
@@ -21,7 +24,9 @@ public class Car {
         return Owner;
     }
 
+    @Autowired
     public Car(String model, int series) {
+
         this.model = model;
         this.series = series;
     }

@@ -15,11 +15,10 @@ public class MainApp {
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
         UserService userService = context.getBean(UserService.class);
-
-        userService.add(new User("User1", "Lastname1", "user1@mail.ru", new Car("BMW", 180)));
-        userService.add(new User("User2", "Lastname2", "user2@mail.ru", new Car("BMW", 260)));
-        userService.add(new User("User3", "Lastname3", "user3@mail.ru", new Car("BMW", 450)));
-        userService.add(new User("User4", "Lastname4", "user4@mail.ru", new Car("BMW", 300)));
+        userService.add(new User(new Car("BMW",120),"name1","secondName1","mail1"));
+        userService.add(new User(new Car("BMW",180),"name2","secondName2","mail2"));
+        userService.add(new User(new Car("BMW",320),"name3","secondName3","mail3"));
+        userService.add(new User(new Car("BMW",480),"name4","secondName4","mail4"));
 
 
         List<User> users = userService.listUsers();
@@ -29,9 +28,9 @@ public class MainApp {
             System.out.println("First Name = " + user.getFirstName());
             System.out.println("Last Name = " + user.getLastName());
             System.out.println("Email = " + user.getEmail());
-            System.out.println("User car model = " + user.getCar().getModel()+
+            System.out.println("User car model = " + user.getCar().getModel() +
                     "\n" + "User car series = " + user.getCar().getSeries()
-                    +"\n" +"User car id = " + user.getCar().getCarId());
+                    + "\n" + "User car id = " + user.getCar().getCarId());
             System.out.println("---------- ---------- ---------- --------- ");
         }
 
