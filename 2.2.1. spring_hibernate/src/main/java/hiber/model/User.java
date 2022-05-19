@@ -29,7 +29,7 @@ public class User {
     public User() {
     }
 
-    @Autowired
+
     public User(Car car, String firstName, String lastName, String email) {
         this.car = car;
         this.firstName = firstName;
