@@ -26,7 +26,6 @@ public class Car {
 
     @Autowired
     public Car(String model, int series) {
-
         this.model = model;
         this.series = series;
     }
